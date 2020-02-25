@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
 
@@ -18,11 +19,19 @@ const Login = () => {
     })
   };
 
+  const onSubmit = e => {
+    e.preventDefault();
+
+    //Validate empty fields
+  };
+
   return (
     <div className="form-usuario">
       <div className="contenedor-form sombra-dark">
         <h1>Sign In</h1>
-        <form>
+        <form
+          onSubmit={onSubmit}
+        >
           <div className="campo-form">
             <label htmlFor="email">Email</label>
             <input
@@ -55,6 +64,10 @@ const Login = () => {
             />
           </div>
         </form>
+
+        <Link to={'/new-account'} className="enlace-cuenta">
+          Sign Up
+        </Link>
       </div>
     </div>
   )
