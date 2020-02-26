@@ -1,9 +1,12 @@
 import React from "react";
+import NewProject from "../proyects/NewProject";
 
 const Sidebar = () => {
   return (
     <aside>
       <h1>MERN<span>Tasks</span></h1>
+
+      <NewProject />
 
       <div className="proyectos">
         <h2>Your Projects</h2>
