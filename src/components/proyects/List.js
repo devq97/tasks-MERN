@@ -1,18 +1,21 @@
-import React from "react";
+import React, {useContext} from "react";
 import Project from "./Project";
+import ProjectContext from "../../context/projects/ProjectContext";
 
 const List = () => {
 
-  const PROJECTS = [
-    {name: 'Online Shop'},
-    {name: 'Intranet'},
-    {name: 'Web Design'}
-  ];
+  // Extract projects from initial state
+  const projectsContext = useContext(ProjectContext);
+  const { projects } = projectsContext;
+
+  // Validate if projects are empty
+  if (projects.length === 0) return null;
 
   return (
     <ul className="listado-proyectos">
-      {PROJECTS.map( project => (
+      {projects.map( project => (
         <Project
+          key={project.id}
           project={project}
         />
       ))}

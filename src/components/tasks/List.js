@@ -4,10 +4,10 @@ import Task from "./Task";
 const List = () => {
 
   const TASKS = [
-    { name: 'Choose Platform', status: true },
-    { name: 'Choose Colors', status: false },
-    { name: 'Choose Pay Platforms', status: false },
-    { name: 'Choose Hosting', status: true },
+    { id: 1, name: 'Choose Platform', status: true },
+    { id: 2, name: 'Choose Colors', status: false },
+    { id: 3, name: 'Choose Pay Platforms', status: false },
+    { id: 4, name: 'Choose Hosting', status: true },
   ];
 
   return (
@@ -20,6 +20,7 @@ const List = () => {
           :
             (TASKS.map( task => (
               <Task
+                key={task.id}
                 task={task}
               />
             )))
