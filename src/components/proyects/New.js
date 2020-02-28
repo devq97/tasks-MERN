@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 
-const NewProject = () => {
+const New = () => {
 
   // Project State
   const [project, setProject] = useState({
@@ -66,4 +66,4 @@ const NewProject = () => {
   )
 };
 
-export default NewProject;
+export default New;
