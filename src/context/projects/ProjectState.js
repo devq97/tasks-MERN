@@ -75,10 +75,10 @@ const ProjectState = props => {
    * Select project that user choose
    * @param project
    */
-  const selectedProject = project => {
+  const selectedProject = id => {
     dispatch({
       type: PROJECT_SELECTED,
-      payload: project
+      payload: id
     })
   };
 

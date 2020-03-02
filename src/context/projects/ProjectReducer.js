@@ -37,7 +37,7 @@ export default (state, action) => {
     case PROJECT_SELECTED:
       return {
         ...state,
-        errorForm: true
+        project: state.projects.filter( project => project.id === action.payload )
       };
 
     default:
