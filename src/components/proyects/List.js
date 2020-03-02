@@ -14,7 +14,7 @@ const List = () => {
   }, []);
 
   // Validate if projects are empty
-  if (projects.length === 0) return null;
+  if (projects.length === 0) return <p>Projects are empty, start creating one</p>;
 
   return (
     <ul className="listado-proyectos">

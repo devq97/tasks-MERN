@@ -6,10 +6,10 @@ const List = () => {
 
   // Getting state
   const projectsContext = useContext(ProjectContext);
-  const { project } = projectsContext;
+  const { project, deleteProject } = projectsContext;
 
   // Validate if selected project is empty
-  if (!project) return <h2>Choose Project</h2>
+  if (!project) return <h2>Choose Project</h2>;
 
   // Extract selected project with array destructuring
   const [ selectedProject ] = project;
@@ -20,6 +20,13 @@ const List = () => {
     { id: 3, name: 'Choose Pay Platforms', status: false },
     { id: 4, name: 'Choose Hosting', status: true },
   ];
+
+  /**
+   * Delete a Project
+   */
+  const handleDeleteProject = () => {
+    deleteProject(selectedProject.id);
+  };
 
   return (
     <Fragment>
@@ -41,6 +48,7 @@ const List = () => {
       <button
         type="button"
         className="btn btn-eliminar"
+        onClick={handleDeleteProject}
       >
         Delete Project &times;
       </button>
