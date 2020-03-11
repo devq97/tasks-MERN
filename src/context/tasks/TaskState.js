@@ -3,7 +3,9 @@ import TaskContext from "./TaskContext";
 import TaskReducer from "./TaskReducer";
 
 import {
-  TASK_PROJECT
+  TASK_PROJECT,
+  ADD_TASK,
+  VALIDATE_TASK
 } from "../../types";
 
 const TaskState = props => {
@@ -23,8 +25,9 @@ const TaskState = props => {
       { name: 'Choose Hosting', status: true, projectID: 4 },
       { name: 'Choose Hosting', status: true, projectID: 3 },
     ],
-    taskProject: null
-  }
+    taskProject: null,
+    error: false
+  };
 
   // Create Dispatch and State
   const [state, dispatch] = useReducer(TaskReducer, initialState);
@@ -38,14 +41,32 @@ const TaskState = props => {
       type: TASK_PROJECT,
       payload: projectID
     })
-  }
+  };
+
+  // Add task to selected project
+  const addTask = task => {
+    dispatch({
+      type: ADD_TASK,
+      payload: task
+    })
+  };
+
+  // Validate error if exists
+  const validateTask = () => {
+    dispatch({
+      type: VALIDATE_TASK
+    })
+  };
 
   return (
     <TaskContext.Provider
       value={{
         tasks: state.tasks,
         taskProject: state.taskProject,
-        getTasks: getTasks
+        error: state.error,
+        getTasks,
+        addTask,
+        validateTask
       }}
     >
       {props.children}

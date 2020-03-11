@@ -6,3 +6,5 @@ export const PROJECT_SELECTED = 'PROJECT_SELECTED';
 export const DELETE_PROJECT = 'DELETE_PROJECT';
 
 export const TASK_PROJECT = 'TASK_PROJECT';
+export const ADD_TASK = 'ADD_TASK';
+export const VALIDATE_TASK = 'VALIDATE_TASK';
