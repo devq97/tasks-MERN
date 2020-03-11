@@ -1,25 +1,23 @@
 import React, {Fragment, useContext} from "react";
 import Task from "./Task";
 import ProjectContext from "../../context/projects/ProjectContext";
+import TaskContext from "../../context/tasks/TaskContext";
 
 const List = () => {
 
-  // Getting state
+  // Getting projects state
   const projectsContext = useContext(ProjectContext);
   const { project, deleteProject } = projectsContext;
+
+  // Getting tasks state
+  const tasksContext = useContext(TaskContext);
+  const { taskProject } = tasksContext;
 
   // Validate if selected project is empty
   if (!project) return <h2>Choose Project</h2>;
 
   // Extract selected project with array destructuring
   const [ selectedProject ] = project;
-
-  const TASKS = [
-    { id: 1, name: 'Choose Platform', status: true },
-    { id: 2, name: 'Choose Colors', status: false },
-    { id: 3, name: 'Choose Pay Platforms', status: false },
-    { id: 4, name: 'Choose Hosting', status: true },
-  ];
 
   /**
    * Delete a Project
@@ -33,10 +31,10 @@ const List = () => {
       <h2>Project: {selectedProject.name}</h2>
       <ul className="listado-tareas">
         {
-          TASKS.length === 0 ?
+          taskProject.length === 0 ?
             (<li className="tarea"><p>Don't have any tasks</p></li>)
           :
-            (TASKS.map( task => (
+            (taskProject.map( task => (
               <Task
                 key={task.id}
                 task={task}
