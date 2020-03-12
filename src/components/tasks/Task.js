@@ -10,7 +10,7 @@ const Task = ({task}) => {
 
   // Getting task context
   const tasksContext = useContext(TaskContext);
-  const { deleteTask, getTasks } = tasksContext;
+  const { deleteTask, getTasks, changeTaskStatus } = tasksContext;
 
   // Destructuring project
   const [selectedProject] = project;
@@ -19,6 +19,12 @@ const Task = ({task}) => {
   const handleDeleteTask = id => {
     deleteTask(id);
     getTasks(selectedProject.id);
+  };
+
+  // Handle to change task status
+  const handleChangeTaskStatus = task => {
+    task.status = !task.status;
+    changeTaskStatus(task);
   };
 
   return (
@@ -32,6 +38,7 @@ const Task = ({task}) => {
               <button
                 type="button"
                 className="completo"
+                onClick={() => handleChangeTaskStatus(task)}
               >
                 Complete
               </button>
@@ -41,6 +48,7 @@ const Task = ({task}) => {
               <button
                 type="button"
                 className="incompleto"
+                onClick={() => handleChangeTaskStatus(task)}
               >
                 Incomplete
               </button>
