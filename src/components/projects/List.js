@@ -12,6 +12,7 @@ const List = () => {
   // Get projects when load component
   useEffect( () => {
     getProjects();
+    // eslint-disable-next-line
   }, []);
 
   // Validate if projects are empty

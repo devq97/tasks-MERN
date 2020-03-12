@@ -10,7 +10,7 @@ const Task = ({task}) => {
 
   // Getting task context
   const tasksContext = useContext(TaskContext);
-  const { deleteTask, getTasks, changeTaskStatus } = tasksContext;
+  const { deleteTask, getTasks, changeTaskStatus, addTaskToEdit } = tasksContext;
 
   // Destructuring project
   const [selectedProject] = project;
@@ -25,6 +25,11 @@ const Task = ({task}) => {
   const handleChangeTaskStatus = task => {
     task.status = !task.status;
     changeTaskStatus(task);
+  };
+
+  // Add task to edit
+  const handleAddTaskToEdit = task => {
+    addTaskToEdit(task);
   };
 
   return (
@@ -60,6 +65,7 @@ const Task = ({task}) => {
         <button
           type="button"
           className="btn btn-primario"
+          onClick={() => handleAddTaskToEdit(task)}
         >
           Edit
         </button>

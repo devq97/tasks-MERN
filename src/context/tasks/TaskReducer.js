@@ -3,7 +3,10 @@ import {
   ADD_TASK,
   VALIDATE_TASK,
   DELETE_TASK,
-  CHANGE_TASK_STATUS
+  CHANGE_TASK_STATUS,
+  ADD_TASK_TO_EDIT,
+  EDIT_TASK,
+  CLEAN_TASK_TO_EDIT
 } from "../../types";
 
 export default (state, action) => {
@@ -29,10 +32,21 @@ export default (state, action) => {
         ...state,
         tasks: state.tasks.filter( task => task.id !== action.payload)
       };
+    case EDIT_TASK:
     case CHANGE_TASK_STATUS:
       return {
         ...state,
-        tasks: state.taskProject.map(task => task.id === action.payload.id ? action.payload : task)
+        tasks: state.tasks.map(task => task.id === action.payload.id ? action.payload : task)
+      };
+    case ADD_TASK_TO_EDIT:
+      return {
+        ...state,
+        taskToEdit: action.payload
+      };
+    case CLEAN_TASK_TO_EDIT:
+      return {
+        ...state,
+        taskToEdit: null
       };
 
     default:
