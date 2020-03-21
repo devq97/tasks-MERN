@@ -13,3 +13,14 @@ export const CHANGE_TASK_STATUS = 'CHANGE_TASK_STATUS';
 export const ADD_TASK_TO_EDIT = 'ADD_TASK_TO_EDIT';
 export const CLEAN_TASK_TO_EDIT = 'CLEAN_TASK_TO_EDIT';
 export const EDIT_TASK = 'EDIT_TASK';
+
+export const SHOW_ALERT = 'SHOW_ALERT';
+export const HIDE_ALERT = 'HIDE_ALERT';
+
+export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS';
+export const SIGN_UP_FAIL = 'SIGN_UP_FAIL';
+export const GET_USER = 'GET_USER';
+export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
+export const SIGN_IN_FAIL = 'SIGN_IN_FAIL';
+export const LOGOUT = 'LOGOUT';
+

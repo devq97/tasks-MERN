@@ -1,7 +1,18 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {Link} from "react-router-dom";
+import AlertContext from "../../context/alerts/AlertContext";
+import AuthContext from "../../context/auth/AuthContext";
 
 const NewAccount = () => {
+
+  // Extract Alert context
+  const alertContext = useContext(AlertContext);
+  const { alert, showAlert } = alertContext;
+
+  // Extract Auth context
+  const authContext = useContext(AuthContext);
+  const { signUp } = authContext;
+
   //state for sign in
   const [user, setUser] = useState({
     name: '',
@@ -23,11 +34,39 @@ const NewAccount = () => {
   const onSubmit = e => {
     e.preventDefault();
 
-    //Validate empty fields
+    // Validate empty fields
+    if (name.trim() === '' || email.trim() === '' || password.trim() === '' || confirm.trim() === '') {
+      showAlert('All fields required', 'alerta-error');
+      return;
+    }
+
+    // Check validations
+    if (password.length < 6) {
+      showAlert('Password must be minimum 6 characters', 'alerta-error');
+      return;
+    }
+
+    if (password !== confirm) {
+      showAlert('Passwords must be equals', 'alerta-error');
+      return;
+    }
+
+    signUp({
+      name,
+      email,
+      password
+    });
+
   };
 
   return (
     <div className="form-usuario">
+      { alert ?
+        (
+          <div className={`alerta ${alert.category}`}>{alert.msg}</div>
+        ) :
+          null
+      }
       <div className="contenedor-form sombra-dark">
         <h1>Sign Up</h1>
         <form
