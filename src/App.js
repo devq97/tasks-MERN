@@ -8,6 +8,13 @@ import ProjectState  from './context/projects/ProjectState';
 import TaskState from "./context/tasks/TaskState";
 import AlertState from "./context/alerts/AlertState";
 import AuthState from "./context/auth/AuthState";
+import auth from "./middlewares/auth";
+
+// Check if exists token
+const token = localStorage.getItem('token');
+if (token) {
+  auth(token)
+}
 
 function App() {
   return (

@@ -117,7 +117,8 @@ const AuthState = ({children}) => {
         user: state.user,
         message: state.message,
         signUp,
-        signIn
+        signIn,
+        userLogged
       }}
     >
       {children}
