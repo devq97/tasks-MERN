@@ -73,6 +73,42 @@ const AuthState = ({children}) => {
     }
   };
 
+  // Sign in
+  const signIn = async data => {
+    try {
+
+      const response = await axiosClient.post('/api/auth', data);
+      dispatch({
+        type: SIGN_IN_SUCCESS,
+        payload: response.data
+      })
+
+      userLogged();
+
+    } catch (error) {
+      let messageError = '';
+      if (Array.isArray(error.response.data.msg)) {
+        error.response.data.msg.map( error => {
+          messageError += error.msg
+        });
+
+      } else {
+        messageError = error.response.data.msg;
+      }
+
+      const alert = {
+        msg: messageError,
+        category: 'alerta-error'
+      }
+
+      dispatch({
+        type: SIGN_IN_FAIL,
+        payload: alert
+      });
+
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -80,7 +116,8 @@ const AuthState = ({children}) => {
         login: state.login,
         user: state.user,
         message: state.message,
-        signUp
+        signUp,
+        signIn
       }}
     >
       {children}

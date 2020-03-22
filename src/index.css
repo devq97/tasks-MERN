@@ -336,3 +336,12 @@ aside  {
   background-color: rgb(230, 78, 78);
   color: var(--blanco);
 }
+
+.alerta {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  width: auto;
+  text-align: justify;
+  padding: .5rem;
+}
