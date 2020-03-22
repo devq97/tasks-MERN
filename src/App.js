@@ -11,7 +11,10 @@ import AlertState from "./context/alerts/AlertState";
 import AuthState from "./context/auth/AuthState";
 import auth from "./middlewares/auth";
 
-// Check if exists token
+/**
+ * Check if exists token
+ * @type {string}
+ */
 const token = localStorage.getItem('token');
 if (token) {
   auth(token)

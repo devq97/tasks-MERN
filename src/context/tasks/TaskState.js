@@ -14,7 +14,14 @@ import {
   CLEAN_TASK_TO_EDIT
 } from "../../types";
 
+/**
+ * Task state
+ * @param props
+ * @returns {*}
+ * @constructor
+ */
 const TaskState = props => {
+
   const initialState = {
     tasks: [
       { id: 1, name: 'Choose Platform', status: true, projectID: 1 },
@@ -39,7 +46,10 @@ const TaskState = props => {
   // Create Dispatch and State
   const [state, dispatch] = useReducer(TaskReducer, initialState);
 
-  // Get tasks of a project
+  /**
+   * Get tasks of a project
+   * @param projectID
+   */
   const getTasks = projectID => {
     dispatch({
       type: TASK_PROJECT,
@@ -47,7 +57,10 @@ const TaskState = props => {
     })
   };
 
-  // Add task to selected project
+  /**
+   * Add task to selected project
+   * @param task
+   */
   const addTask = task => {
     task.id = v4();
     dispatch({
@@ -56,14 +69,19 @@ const TaskState = props => {
     })
   };
 
-  // Validate error if exists
+  /**
+   * Validate error if exists
+   */
   const validateTask = () => {
     dispatch({
       type: VALIDATE_TASK
     })
   };
 
-  // Delete task
+  /**
+   * Delete task
+   * @param id
+   */
   const deleteTask = id => {
     dispatch({
       type: DELETE_TASK,
@@ -71,7 +89,10 @@ const TaskState = props => {
     })
   };
 
-  // Change task state
+  /**
+   * Change task state
+   * @param task
+   */
   const changeTaskStatus = task => {
     dispatch({
       type: CHANGE_TASK_STATUS,
@@ -79,7 +100,10 @@ const TaskState = props => {
     })
   };
 
-  // Add task to edit
+  /**
+   * Add task to edit
+   * @param task
+   */
   const addTaskToEdit = task => {
     dispatch({
       type: ADD_TASK_TO_EDIT,
@@ -87,7 +111,10 @@ const TaskState = props => {
     })
   };
 
-  // Edit task
+  /**
+   * Edit task
+   * @param task
+   */
   const editTask = task => {
     dispatch({
       type: EDIT_TASK,
@@ -95,7 +122,9 @@ const TaskState = props => {
     })
   };
 
-  // Clean task to edit
+  /**
+   * Clean task to edit
+   */
   const cleanTaskToEdit = () => {
     dispatch({
       type: CLEAN_TASK_TO_EDIT

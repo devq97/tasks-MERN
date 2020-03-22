@@ -11,6 +11,9 @@ const Projects = () => {
   const authContext = useContext(AuthContext);
   const { userLogged } = authContext
 
+  /**
+   * Get user logged
+   */
   useEffect( () => {
     userLogged();
   }, []);

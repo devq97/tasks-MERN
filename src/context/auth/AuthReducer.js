@@ -7,6 +7,12 @@ import {
   GET_USER
 } from "../../types";
 
+/**
+ * Switch reducer
+ * @param state
+ * @param action
+ * @returns {{login: boolean, message: null, loading: boolean}|{login: boolean, loading: boolean, user: *}|{login: null, message: *, loading: boolean, user: null, token: null}|*}
+ */
 export default (state, action) => {
   switch (action.type) {
     case SIGN_IN_SUCCESS:

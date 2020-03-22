@@ -14,7 +14,9 @@ const List = () => {
   const tasksContext = useContext(TaskContext);
   const { taskProject } = tasksContext;
 
-  // Validate if selected project is empty
+  /**
+   * Validate if selected project is empty
+   */
   if (!project) return <h2>Choose Project</h2>;
 
   // Extract selected project with array destructuring
@@ -24,7 +26,7 @@ const List = () => {
    * Delete a Project
    */
   const handleDeleteProject = () => {
-    deleteProject(selectedProject.id);
+    deleteProject(selectedProject._id);
   };
 
   return (

@@ -12,8 +12,11 @@ const Form = () => {
   const tasksContext = useContext(TaskContext);
   const { taskToEdit, error, addTask, validateTask, getTasks, editTask, cleanTaskToEdit } = tasksContext;
 
-  // Observe if taskToEdit change
+  /**
+   * Observe if taskToEdit change
+   */
   useEffect( () => {
+
     const addTaskToState = () => {
       if (taskToEdit !== null) {
         setTask(taskToEdit);
@@ -24,6 +27,7 @@ const Form = () => {
       }
     };
     addTaskToState();
+
   }, [taskToEdit]);
 
   // State
@@ -40,7 +44,10 @@ const Form = () => {
   // Extract selected project with array destructuring
   const [ selectedProject ] = project;
 
-  // Get values of form
+  /**
+   * Get values of form
+   * @param e
+   */
   const handleChange = e => {
     setTask({
       ...task,
@@ -48,6 +55,10 @@ const Form = () => {
     })
   };
 
+  /**
+   * Call add or edit task
+   * @param e
+   */
   const onSubmit = e => {
     e.preventDefault();
 

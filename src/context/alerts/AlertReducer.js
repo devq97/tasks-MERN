@@ -1,5 +1,11 @@
 import { SHOW_ALERT, HIDE_ALERT } from "../../types";
 
+/**
+ * Switch reducer
+ * @param state
+ * @param action
+ * @returns {*|{alert: null}|{alert: *}}
+ */
 export default (state, action) => {
   switch (action.type) {
     case SHOW_ALERT:

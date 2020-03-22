@@ -15,19 +15,28 @@ const Task = ({task}) => {
   // Destructuring project
   const [selectedProject] = project;
 
-  // Delete task
+  /**
+   * Delete task
+   * @param id
+   */
   const handleDeleteTask = id => {
     deleteTask(id);
     getTasks(selectedProject.id);
   };
 
-  // Handle to change task status
+  /**
+   * Handle to change task status
+   * @param task
+   */
   const handleChangeTaskStatus = task => {
     task.status = !task.status;
     changeTaskStatus(task);
   };
 
-  // Add task to edit
+  /**
+   * Add task to edit
+   * @param task
+   */
   const handleAddTaskToEdit = task => {
     addTaskToEdit(task);
   };

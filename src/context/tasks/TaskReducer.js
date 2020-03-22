@@ -9,6 +9,12 @@ import {
   CLEAN_TASK_TO_EDIT
 } from "../../types";
 
+/**
+ * Switch reducer
+ * @param state
+ * @param action
+ * @returns {*|{taskProject: *}|{tasks: *}|{taskToEdit: *}|{error: boolean, tasks: *[]}|{taskToEdit: null}|{error: boolean}}
+ */
 export default (state, action) => {
   switch (action.type) {
     case TASK_PROJECT:

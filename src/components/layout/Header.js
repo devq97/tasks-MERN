@@ -7,6 +7,9 @@ const Header = () => {
   const authContext = useContext(AuthContext);
   const { user, userLogged, logout } = authContext;
 
+  /**
+   * Get user logged
+   */
   useEffect( () => {
     userLogged();
   }, []);

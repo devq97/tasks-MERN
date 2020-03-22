@@ -4,6 +4,12 @@ import AlertContext from "./AlertContext";
 
 import { SHOW_ALERT, HIDE_ALERT } from "../../types";
 
+/**
+ * State for handling alerts
+ * @param props
+ * @returns {*}
+ * @constructor
+ */
 const AlertState = props => {
 
   const initialState = {
@@ -12,7 +18,11 @@ const AlertState = props => {
 
   const [state, dispatch] = useReducer(AlertReducer, initialState);
 
-  // Functions
+  /**
+   * Show alert
+   * @param msg
+   * @param category
+   */
   const showAlert = (msg, category) => {
     dispatch({
       type: SHOW_ALERT,

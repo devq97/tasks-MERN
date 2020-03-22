@@ -13,6 +13,12 @@ import {
   GET_USER
 } from "../../types";
 
+/**
+ * Auth state
+ * @param children
+ * @returns {*}
+ * @constructor
+ */
 const AuthState = ({children}) => {
 
   const initialState = {
@@ -25,7 +31,11 @@ const AuthState = ({children}) => {
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
 
-  // Functions
+  /**
+   * Sing up handler
+   * @param data
+   * @returns {Promise<void>}
+   */
   const signUp = async data => {
     try {
 
@@ -52,7 +62,10 @@ const AuthState = ({children}) => {
     }
   };
 
-  // Return user logged
+  /**
+   * Return user logged
+   * @returns {Promise<void>}
+   */
   const userLogged = async () => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -74,7 +87,11 @@ const AuthState = ({children}) => {
     }
   };
 
-  // Sign in
+  /**
+   * Sign in handler
+   * @param data
+   * @returns {Promise<void>}
+   */
   const signIn = async data => {
     try {
 
@@ -110,7 +127,9 @@ const AuthState = ({children}) => {
     }
   };
 
-  // Logout
+  /**
+   * Logout
+   */
   const logout = () => {
     dispatch({
       type: LOGOUT

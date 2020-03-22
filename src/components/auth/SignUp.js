@@ -13,7 +13,9 @@ const SignUp = (props) => {
   const authContext = useContext(AuthContext);
   const { message, login, signUp } = authContext;
 
-  // Sign_up fail
+  /**
+   * Sign up fail
+   */
   useEffect( () => {
     if (login) {
       props.history.push('/projects');
@@ -24,7 +26,7 @@ const SignUp = (props) => {
     }
   }, [message, login, props.history]);
 
-  //state for sign in
+  // State for sign in
   const [user, setUser] = useState({
     name: '',
     email: '',
@@ -35,6 +37,10 @@ const SignUp = (props) => {
   // Destructuring user
   const { name, email, password, confirm } = user;
 
+  /**
+   * Set user state
+   * @param e
+   */
   const handleChange = e => {
     setUser({
       ...user,
@@ -42,6 +48,10 @@ const SignUp = (props) => {
     })
   };
 
+  /**
+   * Call sing up
+   * @param e
+   */
   const onSubmit = e => {
     e.preventDefault();
 
