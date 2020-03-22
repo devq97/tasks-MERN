@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import AlertContext from "../../context/alerts/AlertContext";
 import AuthContext from "../../context/auth/AuthContext";
 
-const Login = (props) => {
+const SignIn = (props) => {
 
   // Extract Alert context
   const alertContext = useContext(AlertContext);
@@ -109,4 +109,4 @@ const Login = (props) => {
   )
 };
 
-export default Login;
+export default SignIn;
