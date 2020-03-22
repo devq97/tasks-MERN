@@ -1,9 +1,9 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import AlertContext from "../../context/alerts/AlertContext";
 import AuthContext from "../../context/auth/AuthContext";
 
-const NewAccount = () => {
+const NewAccount = (props) => {
 
   // Extract Alert context
   const alertContext = useContext(AlertContext);
@@ -11,7 +11,18 @@ const NewAccount = () => {
 
   // Extract Auth context
   const authContext = useContext(AuthContext);
-  const { signUp } = authContext;
+  const { message, login, signUp } = authContext;
+
+  // Sign_up fail
+  useEffect( () => {
+    if (login) {
+      props.history.push('/projects');
+    }
+
+    if (message) {
+      showAlert(message.msg, message.category);
+    }
+  }, [message, login, props.history]);
 
   //state for sign in
   const [user, setUser] = useState({
