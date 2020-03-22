@@ -5,7 +5,7 @@ const Header = () => {
 
   // Extract auth info
   const authContext = useContext(AuthContext);
-  const { user, userLogged } = authContext;
+  const { user, userLogged, logout } = authContext;
 
   useEffect( () => {
     userLogged();
@@ -22,7 +22,12 @@ const Header = () => {
       }
 
       <nav className="nav-principal">
-        <a href="#!">Sign Out</a>
+        <button
+          className="btn btn-blank cerrar-sesion"
+          onClick={() => logout()}
+        >
+          Logout
+        </button>
       </nav>
 
     </header>

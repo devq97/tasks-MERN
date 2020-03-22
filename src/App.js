@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import SignIn from "./components/auth/SignIn";
 import Projects from "./components/projects/Projects";
 import SignUp from "./components/auth/SignUp";
+import Private from "./routes/private";
 
 import ProjectState  from './context/projects/ProjectState';
 import TaskState from "./context/tasks/TaskState";
@@ -25,8 +26,8 @@ function App() {
             <Router>
               <Switch>
                 <Route exact path="/" component={SignIn} />
-                <Route exact path="/new-account" component={SignUp} />
-                <Route exact path="/projects" component={Projects} />
+                <Route exact path="/sign-up" component={SignUp} />
+                <Private exact path="/projects" component={Projects} />
               </Switch>
             </Router>
           </AuthState>

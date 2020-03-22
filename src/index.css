@@ -345,3 +345,8 @@ aside  {
   text-align: justify;
   padding: .5rem;
 }
+
+.cerrar-sesion {
+  color: var(--blanco);
+  text-decoration: none;
+}

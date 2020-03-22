@@ -101,7 +101,7 @@ const SignIn = (props) => {
           </div>
         </form>
 
-        <Link to={'/new-account'} className="enlace-cuenta">
+        <Link to={'/sign-up'} className="enlace-cuenta">
           Sign Up
         </Link>
       </div>
