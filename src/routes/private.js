@@ -19,6 +19,7 @@ const Private = ({ component: Component, ...props }) => {
    */
   useEffect( () => {
     userLogged();
+    // eslint-disable-next-line
   }, []);
 
   return (

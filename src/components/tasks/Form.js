@@ -71,8 +71,7 @@ const Form = () => {
     // Check if the action is edit
     if (taskToEdit === null) {
       // Adding new task to state
-      task.projectID = selectedProject.id;
-      task.status = false;
+      task.project = selectedProject._id;
       addTask(task);
     } else {
       // Edit task
@@ -82,7 +81,7 @@ const Form = () => {
     }
 
     // Get and filter tasks
-    getTasks(selectedProject.id);
+    getTasks(selectedProject._id);
 
     // Reset state
     setTask({

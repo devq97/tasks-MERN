@@ -10,7 +10,6 @@ export const TASK_PROJECT = 'TASK_PROJECT';
 export const ADD_TASK = 'ADD_TASK';
 export const VALIDATE_TASK = 'VALIDATE_TASK';
 export const DELETE_TASK = 'DELETE_TASK';
-export const CHANGE_TASK_STATUS = 'CHANGE_TASK_STATUS';
 export const ADD_TASK_TO_EDIT = 'ADD_TASK_TO_EDIT';
 export const CLEAN_TASK_TO_EDIT = 'CLEAN_TASK_TO_EDIT';
 export const EDIT_TASK = 'EDIT_TASK';

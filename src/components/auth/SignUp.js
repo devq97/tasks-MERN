@@ -24,6 +24,7 @@ const SignUp = (props) => {
     if (message) {
       showAlert(message.msg, message.category);
     }
+    // eslint-disable-next-line
   }, [message, login, props.history]);
 
   // State for sign in

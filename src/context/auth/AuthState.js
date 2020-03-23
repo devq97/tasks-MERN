@@ -107,7 +107,7 @@ const AuthState = ({children}) => {
       let messageError = '';
       if (Array.isArray(error.response.data.msg)) {
         error.response.data.msg.map( error => {
-          messageError += error.msg
+          return messageError += error.msg
         });
 
       } else {

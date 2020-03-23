@@ -24,7 +24,6 @@ const List = () => {
     }
     getProjects();
     // eslint-disable-next-line
-
   }, [message]);
 
   /**
